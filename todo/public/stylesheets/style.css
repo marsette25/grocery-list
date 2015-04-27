@@ -1,0 +1,44 @@
+body {
+  padding: 10px 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.formfield {
+  margin: 5px 0;
+}
+
+.formfield--prompt {
+  text-decoration: underline;
+  font-style: italic;
+  margin-bottom: 3px;
+}
+
+input + label.error {
+  background-color: #A7383E;
+  color: #FFE5E7;
+  clear: both;
+  padding: 3px;
+  margin: 0 0 0 10px;
+  border: 1px dotted red;
+  border-radius: 4px;
+}
+
+.todo-item {
+  border: 1px dotted black;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.actions {
+  padding: 10px 0 0 0;
+}
+
+.deleteButton, .submitButton, .editButton {
+  margin: 0 10px 0 0;
+}
