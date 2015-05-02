@@ -6,36 +6,46 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
   <body>
+
     <a href="/todo">Create a new task</a> | <a href="/user/profile">View profile</a>
     
     <h2 align=right>Welcome, <%= showUser %>!</h2>
     <h1><%= message %></h1>
 
 
+ 
+
     <% for (var t = 0; t < tasks.length; t++) { %>
       <% var currentTask = tasks[t]; %>
       <div class="todo-item" id="todo_<%= currentTask._id %>">
-        <div>
+<!--         <div>
           User: <%= currentTask.user %>
-        </div>
-        <div>
-          Title: <%= currentTask.title %>
-        </div>
-        <div>
-          Description: <%= currentTask.description %>
-        </div>
-        <div>
-          Priority: <%= currentTask.priority %>
-        </div>
-        <div>
-          Due date: <%= currentTask.due_date.getMonth() + 1 %> / <%= currentTask.due_date.getDate() %> / <%= currentTask.due_date.getFullYear() %>
-        </div>
-        <div class="actions">
-          <a class="deleteButton" id="<%= currentTask._id %>">Delete</a>
-          <a class="editButton" id="<%= currentTask._id %>">Edit</a>
-        </div>
-      </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-2">
+              Item: <%= currentTask.title %>
+            </div>
+            <div class="col-md-2">
+              Description: <%= currentTask.description %>
+            </div>
+            <div class="col-md-2">
+             Amount: <%= currentTask.priority %>
+            </div>
+    <!--    <div>
+              Due date: <%= currentTask.due_date.getMonth() + 1 %> / <%= currentTask.due_date.getDate() %> / <%= currentTask.due_date.getFullYear() %>
+            </div> -->
+
+            <div class="col-md-2">
+              Category: <%=currentTask.category %>
+             </div> 
+
+            <div class="actions" class="col-md-2">
+               <a class="deleteButton" id="<%= currentTask._id %>">In the Cart</a>
+                <a class="editButton" id="<%= currentTask._id %>">Edit</a></div>
+           </div> 
+      <div>
     <% } %>
+
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="/javascripts/todoHandler.js"></script>

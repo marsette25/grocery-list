@@ -5,7 +5,7 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
   <body>
-    <a href="/todo/list">Show all tasks</a> | <a href="/user/profile">View profile</a>
+    <a href="/todo/list">Show List</a> | <a href="/user/profile">View profile</a>
     <h1>Create a task</h1>
 
     <form method="POST" action="/todo" id="todoForm">
@@ -13,7 +13,7 @@
       <input type="hidden" name="db_id" value="<%= todo._id %>">
 
       <div class="formfield">
-        <div class="formfield--prompt">Title:</div>
+        <div class="formfield--prompt">Item:</div>
         <input type="text" id="todoTitle" name="title" value="<%= todo.title %>">
       </div>
       <div class="formfield">
@@ -21,19 +21,25 @@
         <textarea id="todoDescription" name="description"><%= todo.description %></textarea>
       </div>
       <div class="formfield">
-        <div class="formfield--prompt">Priority:</div>
+        <div class="formfield--prompt">Amount:</div>
         <input type="text" id="todoPriority" name="priority" value="<%= todo.priority %>">
       </div>
-      <div class="formfield">
+<!--       <div class="formfield">
         <div class="formfield--prompt">Complete by:</div>
         <input type="text" id="todoDuedate"
           name="due_date"
           value="<%= todo.due_date.getMonth() + 1 %> / <%= todo.due_date.getDate() %> / <%= todo.due_date.getFullYear() %>">
-      </div>
-      <div class="formfield">
+      </div> -->
+<!--       <div class="formfield">
         <div class="formfield--prompt">Completed:</div>
-        <input type="checkbox" id="todoDone" name="complete">
+        <input type="checkbox" id="todoDone" name="complete" value="<%= todo.complete %>">
       </div>
+ -->
+    <div class="formfield">
+        <div class="formfield--prompt">Category: (produce, seafood, meat, deli, dairy)</div>
+        <input type="text" id="category" name="category" value="<%= todo.category %>">
+    </div>
+
       <input class="submitButton" type="submit"></input>
     </form>
 

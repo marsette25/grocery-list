@@ -1,6 +1,23 @@
 body {
   padding: 10px 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+}
+
+/*index.ejs login styling*/
+
+#indBody {
+  background: url("http://blog.kulikulifoods.com/wp-content/uploads/2014/11/fruits-and-vegetables.jpg");
+}
+#loginBox {
+  background-color: black;
+  width: 50%;
+  opacity: 0.80;
+  text-align: center;
+}
+
+#loginHeader {
+  color: gray;
 }
 
 a {
@@ -14,8 +31,7 @@ a {
 }
 
 .formfield--prompt {
-  text-decoration: underline;
-  font-style: italic;
+  color: gray;
   margin-bottom: 3px;
 }
 
@@ -29,11 +45,11 @@ input + label.error {
   border-radius: 4px;
 }
 
-.todo-item {
+/*.todo-item {
   border: 1px dotted black;
   margin: 10px 0;
   padding: 10px;
-}
+}*/
 
 .actions {
   padding: 10px 0 0 0;

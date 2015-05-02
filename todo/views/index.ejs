@@ -5,26 +5,48 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
-  <body>
-    <div align=center>
-    <h1>Awesome Grocery List</h1>
+  <body id="indBody">
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+    <div class="row">
+      <div class="col-xs-12 col-md-8">&nbsp;</div>
+      <div class="col-xs-6 col-md-4"> &nbsp;</div>
+    </div>
 
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+      <div class="col-xs-6 col-md-4"> &nbsp;</div>
+      <div class="col-xs-6 col-md-4"> &nbsp;</div>
+      <div class="col-xs-6 col-md-4">&nbsp; </div>
+    </div>
 
-    <form method="POST" action="/user/login" id="loginForm">
-      <div class="formfield">
-        <div class="formfield--prompt">Username:</div>
-        <input type="text" id="username" name="username">
-      </div>
+    <!-- Columns are always 50% wide, on mobile and desktop -->
+    <div class="row">
+      <div class="col-xs-6"> &nbsp;</div>
+      <div class="col-xs-6"> &nbsp;</div>
+    </div>
+
+    <div id="loginBox" class="container-fluid">
+      <h1 id="loginHeader">Whole Goods Grocery List</h1>
+      <h3 id="loginHeader">Buy more. Faster.</h3>
       <BR>
-      <div class="formfield">
-        <div class="formfield--prompt">Password:</div>
-        <input type="password" id="password" name="password">
-      </div>
-      <BR>
-      <input class="submitButton" type="submit"></input>
-    </form>
 
-        <p><BR>Please log in below or  <a href="/user/register">register</a> for a new account</p>
+
+      <form method="POST" action="/user/login" id="loginForm">
+        <div class="formfield">
+          <div class="formfield--prompt">Username:
+            <input type="text" id="username" name="username">
+          </div>
+        </div>
+        <BR>
+        <div class="formfield">
+          <div class="formfield--prompt">Password:
+            <input type="password" id="password" name="password">
+          </div>
+        </div>
+        <BR>
+        <input class="submitButton" type="submit"></input>
+      </form> 
+        <p id="loginHeader"><BR>Don't have an account?  <a href="/user/register">Create one</a> now.</p>
   </div>
   </body>
 </html>
