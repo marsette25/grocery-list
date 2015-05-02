@@ -39,7 +39,7 @@ var sendTodoList = function (req, res, next) {
     } else {
       res.render("todoList", {
         title: "List of tasks",
-        message: "Things you still need to do",
+        message: "Things You Need to Buy from Whole Goods",
         showUser: theUser.username,
         tasks: tasks
       });

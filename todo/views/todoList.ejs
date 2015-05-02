@@ -14,41 +14,45 @@
 
 
  
-
+ <table class="table table-hover">
     <% for (var t = 0; t < tasks.length; t++) { %>
       <% var currentTask = tasks[t]; %>
+
       <div class="todo-item" id="todo_<%= currentTask._id %>">
 <!--         <div>
           User: <%= currentTask.user %>
         </div> -->
-        <div class="row">
-            <div class="col-md-2">
+
+        <tr class="active">
+            <td><div class="col-md-2 vcenter">
               Item: <%= currentTask.title %>
-            </div>
-            <div class="col-md-2">
+            </div></td>
+            <td><div class="col-md-2 vcenter">
               Description: <%= currentTask.description %>
-            </div>
-            <div class="col-md-2">
+            </div></td>
+            <td><div class="col-md-2 vcenter">
              Amount: <%= currentTask.priority %>
-            </div>
+            </div></td>
     <!--    <div>
               Due date: <%= currentTask.due_date.getMonth() + 1 %> / <%= currentTask.due_date.getDate() %> / <%= currentTask.due_date.getFullYear() %>
             </div> -->
 
-            <div class="col-md-2">
+           <td> <div class="col-md-2 vcenter">
               Category: <%=currentTask.category %>
-             </div> 
+             </div> </td>
 
-            <div class="actions" class="col-md-2">
+            <td><div class="actions" valign="top">
                <a class="deleteButton" id="<%= currentTask._id %>">In the Cart</a>
-                <a class="editButton" id="<%= currentTask._id %>">Edit</a></div>
-           </div> 
+               <a class="editButton" id="<%= currentTask._id %>">Edit</a></div>
+           </div> </td>
       <div>
     <% } %>
-
+  </tr>
+ </table>
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="/javascripts/todoHandler.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
   </body>
 </html>
