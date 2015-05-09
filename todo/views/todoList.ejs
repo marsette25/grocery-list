@@ -4,55 +4,96 @@
     <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  </head>
-  <body>
-
-    <a href="/todo">Create a new task</a> | <a href="/user/profile">View profile</a>
-    
-    <h2 align=right>Welcome, <%= showUser %>!</h2>
-    <h1><%= message %></h1>
-
-
  
- <table class="table table-hover">
+  </head>
+
+ <nav class="navbar navbar-default" class="navbar-text navbar-right">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     <img src="../images/Whole_Goods_Logo_50.jpg" alt="whole good"> <a class="navbar-brand" href="#"> </a></img>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+      <ul class="nav navbar-nav">
+        <li><a href="/todo">Add to Your List<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/todo/list">Shopper List<span class="sr-only">(current)</span></a></li>
+        <li><a href="/user/profile" class="btn btnstateless btn-tool-bar navbar-right tip">View Profile</a></li>
+        <li><a href="/recipe">Recipe <span class="sr-only">(current)</span></a></li>
+        <li><a href="/">Logout <span class="sr-only">(current)</span></a></li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>   
+    <h4 align=right>Welcome, <%= showUser %>!</h4>
+    <h4><%= message %></h4>
+    <div> Number of items remaining: <%= tasks.length %></div><BR>
+
+
+
+<div class="row" id="tableHeading">
+
+            <div class="col-md-2" id="divTitle">
+            Item:
+            </div>
+            <div class="col-md-2" id="divDescription">
+            Description: 
+            </div>
+            
+            <div class="col-md-2" id="divPriority">
+            Amount: 
+            </div>
+
+            <div class="col-md-2" id="divCategory">
+            Category: 
+             </div> 
+
+            <div class="col-md-2">
+            In the Cart | Edit
+            </div>
+  </div>
     <% for (var t = 0; t < tasks.length; t++) { %>
       <% var currentTask = tasks[t]; %>
 
-      <div class="todo-item" id="todo_<%= currentTask._id %>">
-<!--         <div>
-          User: <%= currentTask.user %>
-        </div> -->
+      <div class="todo-item" class="row" id="todo_<%= currentTask._id %>">
 
-        <tr class="active">
-            <td><div class="col-md-2 vcenter">
-              Item: <%= currentTask.title %>
-            </div></td>
-            <td><div class="col-md-2 vcenter">
-              Description: <%= currentTask.description %>
-            </div></td>
-            <td><div class="col-md-2 vcenter">
-             Amount: <%= currentTask.priority %>
-            </div></td>
-    <!--    <div>
-              Due date: <%= currentTask.due_date.getMonth() + 1 %> / <%= currentTask.due_date.getDate() %> / <%= currentTask.due_date.getFullYear() %>
-            </div> -->
 
-           <td> <div class="col-md-2 vcenter">
-              Category: <%=currentTask.category %>
-             </div> </td>
+            <div class="col-md-2">
+              <%= currentTask.title %> 
+            </div>
+            <div class="col-md-2">
+              <%= currentTask.description %>
+            </div>
+            <div class="col-md-2">
+             <%= currentTask.priority %>
+            </div>
 
-            <td><div class="actions" valign="top">
-               <a class="deleteButton" id="<%= currentTask._id %>">In the Cart</a>
-               <a class="editButton" id="<%= currentTask._id %>">Edit</a></div>
-           </div> </td>
-      <div>
-    <% } %>
-  </tr>
- </table>
+            <div class="col-md-2" data-sort="category">
+              <%=currentTask.category %>
+             </div> 
+
+            <div class="actions" class="col-md-2">
+               <div class="btn-group btn-group-sm" role="group"><a class="deleteButton" id="<%= currentTask._id %>">In the Cart</a></div>
+               <div class="btn-group btn-group-sm" role="group"> <a class="editButton" id="<%= currentTask._id %>">Edit</a></div>
+            </div>
+
+   </div> 
+            <% } %>
+
+
+
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="/javascripts/todoHandler.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+     <script src="/javascripts/main.js"></script>
 
   </body>
 </html>

@@ -4,8 +4,11 @@
     <title>Task list</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
   </head>
+
   <body id="indBody">
+
     <!-- Stack the columns on mobile by making one full-width and the other half-width -->
     <div class="row">
       <div class="col-xs-12 col-md-8">&nbsp;</div>
@@ -15,7 +18,7 @@
     <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
     <div class="row">
       <div class="col-xs-6 col-md-4"> &nbsp;</div>
-      <div class="col-xs-6 col-md-4"> &nbsp;</div>
+      <div class="col-xs-6 col-md-4">  &nbsp;</div>
       <div class="col-xs-6 col-md-4">&nbsp; </div>
     </div>
 
@@ -25,16 +28,23 @@
       <div class="col-xs-6"> &nbsp;</div>
     </div>
 
+ 
+
+
     <div id="loginBox" class="container-fluid">
-      <h1 id="loginHeader">Whole Goods Grocery List</h1>
-      <h3 id="loginHeader">Buy more. Faster.</h3>
-      <BR>
+
+      <h1 id="loginHeader">&nbsp;</h1>
+         <div align="center"><img id="logo" src="../images/Whole_Goods_Logo_300.jpg" alt="whole good" align="middle" width="250" height="250" class="img-responsive"></img></div>
+     <h3 id="loginHeader">&nbsp;</h3>    
+
+
 
 
       <form method="POST" action="/user/login" id="loginForm">
+
         <div class="formfield">
           <div class="formfield--prompt">Username:
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" autofocus="autofocus">
           </div>
         </div>
         <BR>
@@ -48,5 +58,6 @@
       </form> 
         <p id="loginHeader"><BR>Don't have an account?  <a href="/user/register">Create one</a> now.</p>
   </div>
+
   </body>
 </html>

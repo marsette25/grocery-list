@@ -11,6 +11,10 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+#logo{
+position: relative;
+}
 #loginBox {
   background-color: black;
   width: 50%;
@@ -22,7 +26,7 @@ body {
   color: gray;
 }
 
-a {
+a href {
   color: #00B7FF;
   text-decoration: underline;
   cursor: pointer;
@@ -30,13 +34,21 @@ a {
 
 
 .formfield {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .formfield--prompt {
   color: gray;
-  margin-bottom: 3px;
+  margin-bottom: 10px, 10px, 10px, 10px;
+
 }
+
+#tableHeading {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+
 
 input + label.error {
   background-color: #A7383E;
@@ -48,11 +60,10 @@ input + label.error {
   border-radius: 4px;
 }
 
-/*.todo-item {
-  border: 1px dotted black;
-  margin: 10px 0;
-  padding: 10px;
-}*/
+.todo-item {
+  border: 1px solid black;
+
+}
 
 .actions {
   padding: 0 0 0 0;
@@ -60,4 +71,50 @@ input + label.error {
 
 .deleteButton, .submitButton, .editButton {
   margin: 0 10px 0 0;
+}
+
+.todo-item:nth-of-type(odd) {
+    background: #e0e0e0;
+}
+
+
+.addTaskBody {
+ background: url(http://higherperspective.com/wp-content/uploads/2015/01/grocery-shopping.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+#addTodoPage {
+  background: url(http://watchdog.org/wp-content/blogs.dir/1/files/2015/02/food.jpg);
+}
+
+#taskFormBox {
+ background-color: black;
+ width: 50%;
+ opacity: 0.80;
+ text-align: center;
+ 
+}
+
+#submitButton, #submitButtonRecipe {
+ color: black;
+ margin-bottom: 10px;
+ margin-top: 10px;Z
+}
+
+#formTitle {
+ color: white;
+}
+
+#userProfile {
+    background: url("http://www.indiahouse.com/images/grocery_main_small.jpg");
+    background-size: cover;
+}
+
+#profileTop {
+    background-color: black;
+    opacity: 0.80;
+    text-align: center;
+    color: white;
+    font-size: 20px;
 }

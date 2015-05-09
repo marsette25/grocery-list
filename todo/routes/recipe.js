@@ -1,11 +1,10 @@
 var UserController = require('../userController');
 var express = require('express');
 var router = express.Router();
-var todoList = [];
-
+var recipeList = [];
 
 // Include the model for a Todo that we set up in Mongoose
-var Todo = require('../models/todo');
+var Recipe = require('../models/recipe');
 
 
 
@@ -22,30 +21,30 @@ var sendError = function (req, res, err, message) {
 };
 
 // Send the todo list back to the client
-var sendTodoList = function (req, res, next) {
+var sendRecipeList = function (req, res, next) {
 
 //get the currenlty logged in user object
   var theUser = UserController.getCurrentUser();
 
 
-  Todo.find({}, function (err, tasks) {
+  Recipe.find({}, function (err, recipes) {
 
 // swap out the user._id for user.username
   
-  //Loop over the tasks array
-  for (var i = 0; i < tasks.length; i++) {
-    tasks[i].user = theUser.username;
+  //Loop over the recipes array
+  for (var j = 0; j < recipes.length; j++) {
+    recipes[j].user = theUser.username;
   };
 
     if (err) {
       console.log(err);
-      sendError(req, res, err, "Could not get task list");
+      sendError(req, res, err, "Could not get recipe list");
     } else {
-      res.render("todoList", {
-        title: "List",
-        message: "Things to Buy",
+      res.render("recipeList", {
+        title: "List of tasks",
+        message: "Things You Need to Buy from Whole Goods",
         showUser: theUser.username,
-        tasks: tasks
+        recipes: recipes
       });
     }
   });
@@ -58,7 +57,7 @@ router.get('/list', function (req,res,next) {
     res.redirect("/");
   }
 
-  sendTodoList(req, res, next);
+  sendRecipeList(req, res, next);
 });
 
 // Handle a GET request from the client to /todo/:id
@@ -69,7 +68,7 @@ router.get('/:id', function (req, res) {
     res.redirect("/");
   }
 
-  Todo.find({ _id: req.params.id }, function (err, item) {
+  Recipe.find({ _id: req.params.id }, function (err, item) {
     var thisItem = item[0];
 
     // Was there an error when retrieving?
@@ -78,9 +77,9 @@ router.get('/:id', function (req, res) {
 
     // Find was successful
     } else {
-      res.render('todo', {
+      res.render('recipe', {
         title : 'Express Todo Example',
-        todo: thisItem
+        recipe: thisItem
       });
     }
   });
@@ -97,18 +96,18 @@ router.get('/', function (req, res) {
   }
 
   // Send the todo form back to the client
-  res.render('todo', {
+  res.render('recipe', {
     title : 'Express Todo Example',
-    todo: {
+    recipe: {
       // title: '',
       // description: '',
       // priority: 1,
       // due_date: new Date(),
       // complete: false,
-      // beef_description: 'Ground',
-      // beef_title:  4,
-      // beef_priority: '1 1/2 lb',
-      // beef_category: 'meat' 
+      beef_description: 'Ground',
+      beef_title:  4,
+      beef_priority: '1 1/2 lb',
+      beef_category: 'meat' 
     }
   });
 });
@@ -116,7 +115,7 @@ router.get('/', function (req, res) {
 
 // Handle a DELETE request from the client to /todo
 router.delete('/', function (req, res) {
-  Todo.find({ _id: req.body.todo_id })
+  Recipe.find({ _id: req.body.recipe_id })
       .remove(function (err) {
 
     // Was there an error when removing?
@@ -137,20 +136,21 @@ router.post('/', function (req, res, next) {
   if (req.body.db_id !== "") {
 
     // Find it
-    Todo.findOne({ _id: req.body.db_id }, function (err, foundTodo) {
+    Recipe.findOne({ _id: req.body.db_2id }, function (err, foundRecipe) {
 
       if (err) {
         sendError(req, res, err, "Could not find that task");
       } else {
         // Found it. Now update the values based on the form POST data.
-        foundTodo.title = req.body.title;
-        foundTodo.description = req.body.description;
-        foundTodo.priority = req.body.priority;
-        foundTodo.due_date = req.body.due_date;
-        foundTodo.complete = (req.body.complete) ? req.body.complete : false;
+        foundRecipe.beef_title = req.body.beef_title;
+        foundRecipe.beef_description = req.body.beef_description;
+        foundRecipe.beef_priority = req.body.beef_priority;
+        foundRecipe.beef_category = req.body.beef_category;
+        foundRecipe.due_date = req.body.due_date;
+        foundRecipe.beef_complete = (req.body.complete) ? req.body.complete : false;
 
         // Save the updated item.
-        foundTodo.save(function (err, newOne) {
+        foundRecipe.save(function (err, newOne) {
           if (err) {
             sendError(req, res, err, "Could not save task with updated information");
           } else {
@@ -173,13 +173,13 @@ router.post('/', function (req, res, next) {
     console.log('theFormPostData',theFormPostData);
 
 
-    var mytodo = new Todo(theFormPostData);
+    var myrecipe = new Recipe(theFormPostData);
 
-    mytodo.save(function (err, todo) {
+    mytodo.save(function (err, recipe) {
       if (err) {
         sendError(req, res, err, "Failed to save task");
       } else {
-        res.redirect('/todo/');
+        res.redirect('/todo/list');
       }
     });
   }

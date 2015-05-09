@@ -47,4 +47,5 @@ User.prototype.getCurrentUser = function () {
   return this.currentUser;
 };
 
+
 module.exports = new User();

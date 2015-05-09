@@ -43,6 +43,14 @@ app.use('/todo', todo);
 var users = require('./routes/users');
 app.use('/user', users);
 
+// Set up route handlers for /recipe URL
+// var recipes = require('./routes/todo');
+// app.use('/recipes', todo);
+
+
+var recipe = require('./routes/recipe');
+app.use('/recipe', recipe);
+
 
 
 

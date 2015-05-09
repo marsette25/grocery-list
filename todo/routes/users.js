@@ -4,6 +4,7 @@ var app = express.Router();
 var UserController = require("../userController");
 var UserModel = require("../models/user");
 var Todo = require("../models/todo");
+// var Recipe = require("../models/recipe");
 
 // Send the error message back to the client
 var sendError = function (req, res, err, message) {
@@ -36,6 +37,28 @@ var getUserTasks = function (userId) {
 
   return deferred.promise;
 };
+
+// var getUserRecipes = function (userId) {
+//   var deferred = Q.defer();
+
+//   console.log('Another promise to let the calling function know when the database lookup is complete');
+
+//   Recipe.find({user: userId}, function (err, recipes) {
+//     if (!err) {
+//       console.log('Recipes found = ' + recipes.length);
+//       console.log('No errors when looking up tasks. Resolve the promise (even if none were found).');
+//       deferred.resolve(tasks);
+//     } else {
+//       console.log('There was an error looking up tasks. Reject the promise.');
+//       deferred.reject(err);
+//     }
+//   })
+
+//   return deferred.promise;
+// };
+
+
+
 
 
 // Handle the request for the registration form
@@ -107,5 +130,6 @@ app.get("/profile", function (req, res) {
   }
 
 });
+
 
 module.exports = app;

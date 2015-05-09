@@ -1,52 +1,95 @@
 <!DOCTYPE html> <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  </head>
-  <body>
-    <a href="/todo/list">Show List</a> | <a href="/user/profile">View profile</a>
-    <h1>Create a task</h1>
+ <head>
+   <title> Add an Item </title>
+   <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+ </head>
+ <body class="addTaskBody" id="addTodoPage">
+   <div class="row">
+     <div class="col-xs-12 col-md-8">&nbsp;</div>
+     <div class="col-xs-6 col-md-4"> &nbsp;</div>
+   </div>
 
-    <form method="POST" action="/todo" id="todoForm">
 
-      <input type="hidden" name="db_id" value="<%= todo._id %>">
+   <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+   <div class="row">
+     <div class="col-xs-6 col-md-4"> &nbsp;</div>
+     <div class="col-xs-6 col-md-4"> &nbsp;</div>
+     <div class="col-xs-6 col-md-4">&nbsp; </div>
+   </div>
 
-      <div class="formfield">
-        <div class="formfield--prompt">Item:</div>
-        <input type="text" id="todoTitle" name="title" value="<%= todo.title %>">
-      </div>
-      <div class="formfield">
-        <div class="formfield--prompt">Description:</div>
-        <textarea id="todoDescription" name="description"><%= todo.description %></textarea>
-      </div>
-      <div class="formfield">
-        <div class="formfield--prompt">Amount:</div>
-        <input type="text" id="todoPriority" name="priority" value="<%= todo.priority %>">
-      </div>
-<!--       <div class="formfield">
-        <div class="formfield--prompt">Complete by:</div>
-        <input type="text" id="todoDuedate"
-          name="due_date"
-          value="<%= todo.due_date.getMonth() + 1 %> / <%= todo.due_date.getDate() %> / <%= todo.due_date.getFullYear() %>">
-      </div> -->
-<!--       <div class="formfield">
-        <div class="formfield--prompt">Completed:</div>
-        <input type="checkbox" id="todoDone" name="complete" value="<%= todo.complete %>">
-      </div>
- -->
-    <div class="formfield">
-        <div class="formfield--prompt">Category: (produce, seafood, meat, deli, dairy)</div>
-        <input type="text" id="category" name="category" value="<%= todo.category %>">
+   <!-- Columns are always 50% wide, on mobile and desktop -->
+   <div class="row">
+     <div class="col-xs-6"> &nbsp;</div>
+     <div class="col-xs-6"> &nbsp;</div>
+   </div>
+
+
+   <div id="taskFormBox" class="container-fluid">
+     <nav class="navbar navbar-default" class="navbar-text navbar-right">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     <img src="../images/Whole_Goods_Logo_50.jpg" alt="whole good"> <a class="navbar-brand" href="#"> </a></img>
     </div>
 
-      <input class="submitButton" type="submit"></input>
-    </form>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/todo">Add to Your List<span class="sr-only">(current)</span></a></li>
+        <li><a href="/todo/list">Shopper List<span class="sr-only">(current)</span></a></li>
+        <li><a href="/user/profile" class="btn btnstateless btn-tool-bar navbar-right tip">View Profile</a></li>
+        <li><a href="/recipe">Recipe <span class="sr-only">(current)</span></a></li>
+        <li><a href="/">Logout <span class="sr-only">(current)</span></a></li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>  
+<!--        <a href="/todo/list">Show List</a> | <a href="/user/profile">View profile</a> | <a href="/">logout</a> | <a href="/recipe">recipes</a> -->
 
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
-    <script src="/javascripts/validate.js"></script>
-  </body>
+       <h1 id="formTitle">Add to Your List</h1>
+
+       <form method="POST" action="/todo" id="todoForm">
+
+         <input type="hidden" name="db_id" value="<%= todo._id %>">
+
+         <div class="formfield">
+           <div class="formfield--prompt">Item:</div>
+             <input type="text" id="todoTitle" name="title" value="<%= todo.title %>" autofocus="autofocus" placeholder="Item">
+           
+         </div>
+
+         <div class="formfield">
+           <div class="formfield--prompt"> Description: </div>
+           <input type="text" id="todoDescription" name="description" placeholder="Description" value="<%= todo.description %>">
+         
+       </div>
+         <div class="formfield">
+           <div class="formfield--prompt">Amount: </div>
+           <input type="text" id="todoPriority" name="priority" value="<%= todo.priority %>" placeholder="Amount">
+         
+       </div>
+
+       <div class="formfield">
+           <div class="formfield--prompt"> Category: (produce, seafood, meat, deli, dairy)</div>
+           <input type="text" id="category" name="category" value="<%= todo.category %>" placeholder="Category"> 
+     </div>
+     <div class="formfield">
+         <input id="submitButton" class="submitButton" type="submit"></input>
+       </form>   
+ </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+   <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+   <script src="/javascripts/validate.js"></script>
+ </body>
 </html>

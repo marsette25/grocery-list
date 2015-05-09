@@ -1,16 +1,18 @@
 var mongoose = require('mongoose');
 
 var todoSchema = mongoose.Schema({
-    due_date: {type: Date, required: true, default: Date.now },
-    description: {type: String, required: true, default: ''},
-    title: {type: String, required: true, default: ''},
-    priority: {type: String, required: true, default: 1 },
-    complete: {type: Boolean, required: true, default: false },
+    due_date: {type: Date, required: false, default: Date.now },
+    description: {type: String, required: false },
+    title: {type: String, required: false },
+    priority: {type: String, required: false },
+    complete: {type: Boolean, required: false, default: false },
     user: {type: String, required: true},
-    category: {type: String, required: true, default: false },
+    category: {type: String, required: false }
 
 });
 
 var Todo = mongoose.model('Todo', todoSchema);
 
+
 module.exports = Todo;
+

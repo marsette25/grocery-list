@@ -1,0 +1,68 @@
+<!DOCTYPE html> <html>
+ <head>
+   <title> Add an Item </title>
+   <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+ </head>
+ <body class="addTaskBody" id="addTodoPage">
+   <div class="row">
+     <div class="col-xs-12 col-md-8">&nbsp;</div>
+     <div class="col-xs-6 col-md-4"> &nbsp;</div>
+   </div>
+
+
+   <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+   <div class="row">
+     <div class="col-xs-6 col-md-4"> &nbsp;</div>
+     <div class="col-xs-6 col-md-4"> &nbsp;</div>
+     <div class="col-xs-6 col-md-4">&nbsp; </div>
+   </div>
+
+   <!-- Columns are always 50% wide, on mobile and desktop -->
+   <div class="row">
+     <div class="col-xs-6"> &nbsp;</div>
+     <div class="col-xs-6"> &nbsp;</div>
+   </div>
+   <div id="taskFormBox" class="container-fluid">
+       <a href="/todo/list">Show List</a> | <a href="/user/profile">View profile</a> | <a href="/">logout</a> | <a href="/recipe">recipes</a>
+
+<h1 id="formTitle">Add Recipe Ingredients</h1>
+
+       <form method="POST" action="/todo" id="recipeForm">
+
+         <input type="hidden" name="db_id" value="<%= recipe._id %>">
+
+         <div class="formfield">
+           <div class="formfield--prompt">Item:</div>
+           <input type="text" id="todoTitle" name="beef_title" value="<%= recipe.beef_title %>">
+         </div>
+         <div class="formfield">
+           <div class="formfield--prompt">Description:</div>
+           <textarea id="todoDescription" name="beef_description"><%= recipe.beef_description %></textarea>
+         </div>
+         <div class="formfield">
+           <div class="formfield--prompt">test:</div>
+           <input type="text" id="todoPriority" name="beef_priority" value="<%= recipe.beef_priority %>">
+         </div>
+
+       <div class="formfield">
+           <div class="formfield--prompt">Category: (produce, seafood, meat, deli, dairy)</div>
+           <input type="text" id="category" name="beef_category" value="<%= recipe.beef_category %>">
+       </div>
+
+         <input id="submitButton" class="submitButton" type="submit"></input>
+       </form>
+ </div>
+
+   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+   <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+   <script src="/javascripts/validate.js"></script>
+ </body>
+</html>
+
+
+
+    
