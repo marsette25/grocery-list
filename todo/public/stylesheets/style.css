@@ -48,7 +48,9 @@ a href {
   font-weight: bold;
 }
 
-
+#preparation {
+  color: white;
+}
 
 input + label.error {
   background-color: #A7383E;
